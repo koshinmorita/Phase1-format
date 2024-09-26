@@ -1,0 +1,315 @@
+@charset "UTF-8";
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+nav,
+ul,
+li {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+a:visited {
+  color: inherti;
+}
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+img {
+  vertical-align: bottom;
+  max-width: 100%;
+}
+
+
+/* 共通部分 */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 12px;
+  line-height: 1.67;
+}
+
+/* 変数 */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  z-index: 9999;
+  top: 20px;
+  color: #fff;
+  padding: 0 20px;
+}
+header .hd-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+header .ham {
+  display: none;
+}
+header .pc-navmenu ul {
+  display: flex;
+  gap: 55px;
+  font-size: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#first-v {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/bg1.jpg");
+  background-size: cover;
+  position: relative;
+}
+#first-v .first-v__wrap {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#first-v .first-v__wrap .catch {
+  color: #fff;
+  font-size: 2.7rem;
+  line-height: 1.1481481481;
+  margin-bottom: 13rem;
+  font-weight: bold;
+}
+#first-v .first-v__wrap .catch::after {
+  content: "";
+  display: block;
+  width: 50%;
+  border-top: 1px solid #fff;
+  margin: 2rem auto 0;
+}
+
+.fv-btn, #entry .entry-wrap .entry-btn {
+  border: none;
+  background: linear-gradient(to right, #06beb6, #283c86);
+  color: #fff;
+  font-size: 1.5rem;
+  width: 20rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 0 #070707;
+}
+.fv-btn .btn-icon, #entry .entry-wrap .entry-btn .btn-icon {
+  margin-right: 0.4rem;
+}
+
+#entry {
+  height: 48.2rem;
+  position: relative;
+}
+#entry .entry-wrap {
+  position: absolute;
+  width: 32rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+#entry .entry-wrap .entry-copy {
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 5.5rem;
+}
+#entry .entry-wrap .entry-btn {
+  width: 100%;
+}
+
+footer {
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #191919;
+}
+footer p {
+  font-size: 1.2rem;
+  color: #fff;
+  line-height: 1.1666666667;
+}/*# sourceMappingURL=main.css.map */

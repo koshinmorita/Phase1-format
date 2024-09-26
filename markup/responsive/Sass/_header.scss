@@ -1,0 +1,25 @@
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    z-index: 9999;
+    top: 20px;
+    color: $cWhite;
+    padding: 0 20px;
+    .hd-logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+    .ham {
+        display: none;
+    }
+    .pc-navmenu ul {
+        display: flex;
+        gap: 55px;
+        font-size: 1.5rem;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

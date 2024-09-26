@@ -1,0 +1,12 @@
+footer {
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $cBlack;
+    p {
+        font-size: 1.2rem;
+        color: #fff;
+        line-height: (14/12);
+    }
+}
