@@ -9,10 +9,15 @@ const setPlayer2dice = document.querySelector('#setPlayer2dice');
 setPlayer1dice.setAttribute('src', '/img/saikoro1.png');
 setPlayer2dice.setAttribute('src', '/img/saikoro1.png');
 
+// プレイヤー1側のボタンをクリックしたときに発生する関数を定義
 const func1 = () => {
+    // ボタンを一度クリックした後に機能しなくさせる
     player1Btn.disabled = true;
+    // テキストの初期表示
     resultMessage.textContent = '結果はどうなる？？';
-
+    // サイコロの目をランダムで出してrandum1Num1に格納
+    // randum1Num1を変数や定数に格納しないのは
+    // ローカルスコープをまたいでrandum1Num2と数字の大小を比較するため;
     const func1Timer = setInterval(() => {
         randomNum1 = Math.floor(Math.random() * 6 + 1);
         const rusultImgSrc1 = `./img/saikoro${randomNum1}.png`;
