@@ -1,0 +1,55 @@
+#about {
+    background-color: #f8f8f8;
+    .about-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        row-gap: 4.6rem;
+        @include tab {
+            row-gap: 2rem;
+        }
+        .about-item {
+            width: calc(300 / 1366) * 100vw;
+            height: 31.2rem;
+            background-color: $cWhite;
+            padding: 3.85rem 5rem 0;
+            text-align: center;
+            @include tab {
+                width: calc(160 / 375) * 100vw;
+                height: auto;
+                padding: 2.6rem 1.3rem 1.2rem;
+            }
+            .about-item__title {
+                font-weight: bold;
+                font-size: 2.2rem;
+                line-height: 1;
+                margin-bottom: 1.8rem;
+                @include tab {
+                    font-size: 1.5rem;
+                    margin-bottom: 1.2rem;
+                }
+            }
+            .about-item__img {
+                margin-bottom: 3.5rem;
+                width: 100%;
+                display: inline-block;
+                @include tab {
+                    width: 8.1rem;
+                    height: 8.1rem;
+                    margin-bottom: 2.35rem;
+                }
+                img {
+                    @include tab {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            .about-item__desc {
+                text-align: left;
+                font-size: 1.2rem;
+                line-height: calc(20 / 12);
+            }
+        }
+    }
+}

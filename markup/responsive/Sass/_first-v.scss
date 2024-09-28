@@ -14,6 +14,10 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+        @include sp {
+            top: calc(272 / 667) * 100vh;
+            transform: translate(-50%, 0);
+        }
 
         .catch {
             color: $cWhite;
@@ -21,6 +25,10 @@
             line-height: calc(31 / 27);
             margin-bottom: 13rem;
             font-weight: bold;
+            @include sp {
+                width: 25rem;
+                margin-bottom: calc((244 / 667) * 100vh - 2rem);
+            }
             &::after {
                 content: '';
                 display: block;

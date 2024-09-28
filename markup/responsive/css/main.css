@@ -193,6 +193,7 @@ img {
 }
 
 
+/* mixin */
 /* 共通部分 */
 html {
   font-size: 62.5%;
@@ -204,6 +205,50 @@ body {
 }
 
 /* 変数 */
+.inner {
+  width: 80%;
+  margin: 0 auto;
+  padding: 90px 0;
+}
+@media (max-width: 1024px) {
+  .inner {
+    width: 89.6vw;
+    padding: 50px 0;
+  }
+}
+
+.title {
+  display: flex;
+  font-size: 1.8rem;
+  font-style: italic;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1111111111;
+  margin-bottom: 6rem;
+}
+@media (max-width: 1024px) {
+  .title {
+    margin-bottom: 4rem;
+  }
+}
+.title::before {
+  content: "";
+  display: inline-block;
+  border-top: 1px solid #191919;
+  width: 2.5rem;
+  margin-right: 1.75rem;
+}
+.title::after {
+  content: "";
+  display: inline-block;
+  border-top: 1px solid #191919;
+  width: 2.5rem;
+  margin-left: 1.75rem;
+}
+.title--b {
+  font-weight: bold;
+}
+
 header {
   width: 100%;
   display: flex;
@@ -221,6 +266,26 @@ header .hd-logo {
 }
 header .ham {
   display: none;
+}
+@media (max-width: 1024px) {
+  header .ham {
+    display: flex;
+    width: 2.5rem;
+    height: 1.4rem;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  header .ham span {
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+  }
+}
+@media (max-width: 1024px) {
+  header .pc-navmenu {
+    display: none;
+  }
 }
 header .pc-navmenu ul {
   display: flex;
@@ -247,12 +312,24 @@ header .pc-navmenu ul {
   align-items: center;
   text-align: center;
 }
+@media (max-width: 599px) {
+  #first-v .first-v__wrap {
+    top: 40.7796101949vh;
+    transform: translate(-50%, 0);
+  }
+}
 #first-v .first-v__wrap .catch {
   color: #fff;
   font-size: 2.7rem;
   line-height: 1.1481481481;
   margin-bottom: 13rem;
   font-weight: bold;
+}
+@media (max-width: 599px) {
+  #first-v .first-v__wrap .catch {
+    width: 25rem;
+    margin-bottom: calc(36.5817091454vh - 2rem);
+  }
 }
 #first-v .first-v__wrap .catch::after {
   content: "";
@@ -279,6 +356,132 @@ header .pc-navmenu ul {
   margin-right: 0.4rem;
 }
 
+#about {
+  background-color: #f8f8f8;
+}
+#about .about-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 4.6rem;
+}
+@media (max-width: 1024px) {
+  #about .about-wrap {
+    row-gap: 2rem;
+  }
+}
+#about .about-wrap .about-item {
+  width: 21.9619326501vw;
+  height: 31.2rem;
+  background-color: #fff;
+  padding: 3.85rem 5rem 0;
+  text-align: center;
+}
+@media (max-width: 1024px) {
+  #about .about-wrap .about-item {
+    width: 42.6666666667vw;
+    height: auto;
+    padding: 2.6rem 1.3rem 1.2rem;
+  }
+}
+#about .about-wrap .about-item .about-item__title {
+  font-weight: bold;
+  font-size: 2.2rem;
+  line-height: 1;
+  margin-bottom: 1.8rem;
+}
+@media (max-width: 1024px) {
+  #about .about-wrap .about-item .about-item__title {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+}
+#about .about-wrap .about-item .about-item__img {
+  margin-bottom: 3.5rem;
+  width: 100%;
+  display: inline-block;
+}
+@media (max-width: 1024px) {
+  #about .about-wrap .about-item .about-item__img {
+    width: 8.1rem;
+    height: 8.1rem;
+    margin-bottom: 2.35rem;
+  }
+}
+@media (max-width: 1024px) {
+  #about .about-wrap .about-item .about-item__img img {
+    width: 100%;
+    height: 100%;
+  }
+}
+#about .about-wrap .about-item .about-item__desc {
+  text-align: left;
+  font-size: 1.2rem;
+  line-height: 1.6666666667;
+}
+
+#news {
+  width: 100%;
+  background-image: url("../img/bg2.jpg");
+  background-size: cover;
+}
+#news .title {
+  color: #fff;
+}
+#news .title::before, #news .title::after {
+  border: 1px solid #fff;
+}
+#news .news-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 1024px) {
+  #news .news-wrap {
+    flex-wrap: wrap;
+    row-gap: 3rem;
+  }
+}
+#news .news-wrap .news-item {
+  width: 24.5973645681vw;
+  height: 40rem;
+}
+@media (max-width: 1024px) {
+  #news .news-wrap .news-item {
+    width: 100%;
+  }
+}
+#news .news-wrap .news-item .news__img {
+  width: 100%;
+  height: 207px;
+}
+#news .news-wrap .news-item .news__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#news .news-wrap .news-item .news-content {
+  background-color: #fff;
+  padding: 2rem 2rem 3.5rem;
+}
+#news .news-wrap .news-item .news-content .news-content__day {
+  font-size: 1.1rem;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 0.8rem;
+}
+#news .news-wrap .news-item .news-content .news-content__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 2.4rem;
+  letter-spacing: -0.2px;
+}
+#news .news-wrap .news-item .news-content .news-content__intro {
+  font-size: 1.2rem;
+  line-height: 1.6666666667;
+}
+
 #entry {
   height: 48.2rem;
   position: relative;
@@ -299,6 +502,85 @@ header .pc-navmenu ul {
 }
 #entry .entry-wrap .entry-btn {
   width: 100%;
+}
+
+#contact {
+  background-image: url("../img/bg3.png");
+  background-size: cover;
+  color: #fff;
+  font-size: 1.5rem;
+}
+#contact .title {
+  color: #fff;
+}
+#contact .title::before, #contact .title::after {
+  border-color: #fff;
+}
+#contact .contact-caution {
+  line-height: 1;
+  margin-bottom: 2.5rem;
+}
+#contact .contact-caution .caution-red {
+  color: red;
+  margin-right: 0.8rem;
+}
+#contact .contact-box:not(:last-of-type) {
+  margin-bottom: 3.3rem;
+}
+#contact .contact-box:nth-of-type(3) {
+  position: relative;
+}
+#contact .contact-box:nth-of-type(3)::after {
+  position: absolute;
+  content: "";
+  display: block;
+  background-image: url("../img/arrow.png");
+  background-size: 100%;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 60%;
+  right: 1.5rem;
+  pointer-events: none; /* これでクリックを背後の要素に渡す */
+}
+#contact .contact-box:nth-of-type(3) select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+#contact .contact-text {
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+#contact .contact-text .red {
+  color: red;
+  margin-left: 0.8rem;
+}
+#contact input,
+#contact select,
+#contact textarea {
+  width: 100%;
+  height: 5.5rem;
+  padding: 2rem 1.5rem;
+  border-radius: 0.7rem;
+}
+#contact textarea {
+  height: 18.5rem;
+}
+
+.contact-wrap {
+  width: 600px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+@media (max-width: 1024px) {
+  .contact-wrap {
+    width: 80%;
+  }
+}
+@media (max-width: 599px) {
+  .contact-wrap {
+    width: 100%;
+  }
 }
 
 footer {

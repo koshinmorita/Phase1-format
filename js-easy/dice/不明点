@@ -1,0 +1,12 @@
+let player1Stop;
+let player2Stop;
+をローカルスコープに移動しても比較が機能する理由
+
+player1Stop = false;は trueにしても問題ない？
+あくまでもクリックされたかどうかを評価するためだけの目的？
+もしそうであれば、player1Btn,player2Btnの.disabledで評価してもいいのでは？
+
+player1numに変数も定数も定義されていないのは、
+ローカルをまたいで比較するため？
+
+44行目の player2Stop = true;　は不要？
