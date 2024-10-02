@@ -1,86 +1,89 @@
-// 今回の課題で使用する各要素を定数に格納
+// 各要素を定数へ格納
 const player1Btn = document.querySelector('#player1Btn');
 const player2Btn = document.querySelector('#player2Btn');
-const resultMessage = document.querySelector('#result');
-const setPlayer1dice = document.querySelector('#setPlayer1dice');
-const setPlayer2dice = document.querySelector('#setPlayer2dice');
+let result = document.querySelector('#result');
+const player1diceImage = document.querySelector('#setPlayer1dice');
+const player2diceImage = document.querySelector('#setPlayer2dice');
 
-// ローカルスコープをまたいで大小を比較するため、グローバルに変数を定義
-let randomNum1;
-let randomNum2;
+// ローカルスコープを跨いで使用するため変数へ格納
+let randomNum;
+let compareNum1;
+let compareNum2;
 
-// クリックされたら trueとする。（初期値はnull）
-// グローバルに定義しておくことで、ローカルスコープを跨いで使用ができる
-let clickJudge1;
-let clickJudge2;
+// プレイヤーのデータをまとめた配列
+const players = [
+    {
+        btn: player1Btn,
+        diceImage: player1diceImage,
+        clickJudge: false,
+    },
+    {
+        btn: player2Btn,
+        diceImage: player2diceImage,
+        clickJudge: false,
+    },
+];
 
-// 画像初期表示の設定
-setPlayer1dice.setAttribute('src', '/img/saikoro1.png');
-setPlayer2dice.setAttribute('src', '/img/saikoro1.png');
+// サイコロ画像の初期設定
+let diceImageSrc = './img/saikoro1.png';
+players.forEach((player) => {
+    player.diceImage.setAttribute('src', diceImageSrc);
+});
 
-// プレイヤー1側のボタンをクリックしたときに発生する関数を定義
-const rollDice1 = () => {
-    console.log(clickJudge1);
-    // ボタンを一度クリックした後に機能しなくさせる
-    player1Btn.disabled = true;
-    // テキストの初期表示
-    resultMessage.textContent = '結果はどうなる？？';
-    // サイコロの目をランダムで出してrandum1Num1に格納
+const rollDice = (setPlayer) => {
+    setPlayer.btn.disabled = true;
 
-    const func1Timer = setInterval(() => {
-        randomNum1 = Math.floor(Math.random() * 6 + 1);
-        const rusultImgSrc1 = `./img/saikoro${randomNum1}.png`;
-        setPlayer1dice.setAttribute('src', rusultImgSrc1);
+    if (players[0].btn.disabled === true && players[1].btn.disabled === false) {
+        result.textContent = 'プレイヤー2を待ってるよ';
+    } else if (
+        players[0].btn.disabled === false &&
+        players[1].btn.disabled === true
+    ) {
+        result.textContent = 'プレイヤー1を待ってるよ';
+    } else {
+        result.textContent = 'どっちが勝つかな？';
+    }
+
+    const rollDiceTimer = setInterval(() => {
+        randomNum = Math.floor(Math.random() * 6 + 1);
+        const randomDiceImage = `./img/saikoro${randomNum}.png`;
+        setPlayer.diceImage.setAttribute('src', randomDiceImage);
     }, 50);
 
     setTimeout(() => {
-        clickJudge1 = true;
-        clearInterval(func1Timer);
-        if (clickJudge1 && clickJudge2) {
-            if (randomNum1 > randomNum2) {
-                result.textContent = 'player1の勝ち';
-            } else if (randomNum2 > randomNum1) {
-                result.textContent = 'player2の勝ち';
-            } else {
-                result.textContent = '引き分け';
-            }
-            player1Btn.disabled = false;
-            player2Btn.disabled = false;
-
-            clickJudge1 = null;
-            clickJudge2 = null;
+        setPlayer.clickJudge = true;
+        // console.log(setJudge);
+        clearInterval(rollDiceTimer);
+        if (setPlayer.btn === player1Btn) {
+            compareNum1 = randomNum;
+            // console.log(compareNum1);
+        } else {
+            compareNum2 = randomNum;
+            // console.log(compareNum2);
         }
-    }, 2000);
+
+        // console.log(players[0].clickJudge);
+        if (players[0].clickJudge === true && players[1].clickJudge === true) {
+            if (compareNum1 > compareNum2) {
+                result.textContent = 'プレイヤー1の勝ちです！';
+            } else if (compareNum2 > compareNum1) {
+                result.textContent = 'プレイヤー2の勝ちです！';
+            } else {
+                result.textContent = '引き分けだよ！';
+            }
+            resetGame();
+        }
+    }, 3000);
 };
 
-const rollDice2 = () => {
-    player2Btn.disabled = true;
-    resultMessage.textContent = '結果はどうなる？？';
-    const func2Timer = setInterval(() => {
-        randomNum2 = Math.floor(Math.random() * 6 + 1);
-        const rusultImgSrc2 = `./img/saikoro${randomNum2}.png`;
-        setPlayer2dice.setAttribute('src', rusultImgSrc2);
-    }, 50);
-
-    setTimeout(() => {
-        clickJudge2 = true;
-        clearInterval(func2Timer);
-        if (clickJudge1 && clickJudge2) {
-            if (randomNum1 > randomNum2) {
-                result.textContent = 'player1の勝ち';
-            } else if (randomNum2 > randomNum1) {
-                result.textContent = 'player2の勝ち';
-            } else {
-                result.textContent = '引き分け';
-            }
-            player1Btn.disabled = false;
-            player2Btn.disabled = false;
-
-            clickJudge1 = null;
-            clickJudge2 = null;
-        }
-    }, 2000);
+const resetGame = () => {
+    players.forEach((player) => {
+        player.btn.disabled = false;
+        player.clickJudge = false;
+    });
 };
 
-player1Btn.addEventListener('click', rollDice1);
-player2Btn.addEventListener('click', rollDice2);
+// 各プレイヤーのボタンにイベントリスナーを追加
+players.forEach((player) => {
+    player.btn.addEventListener('click', () => rollDice(player));
+});
