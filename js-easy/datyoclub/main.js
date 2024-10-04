@@ -1,24 +1,28 @@
-// let countNum = 0;
-// const cntUp = () => {
-//     countNum += 1;
-// };
+// const cntUp = document.querySelector('#cntUp');
+// const reply = document.querySelector('#reply');
 
-// const word = 'どうぞどうぞ';
-// const reply = () => {
-//     alert(word.repeat(countNum));
-//     countNum = 0;
-// };
+// let cntNum = 0;
+// cntUp.addEventListener('click', () => {
+//     cntNum += 1;
+//     console.log(cntNum);
+// });
 
-let countNum = 3;
-const button = document.querySelector('button');
-button.innerHTML = 3;
+// reply.addEventListener('click', () => {
+//     const str = 'どうぞどうぞ';
+//     const action = str.repeat(cntNum);
+//     alert(action);
+//     cntNum = 0;
+// });
 
-const cntDown = () => {
-    countNum -= 1;
-    button.innerHTML = countNum;
-    if (countNum === 0) {
-        alert('そして誰もいなくなった');
-        countNum = 3;
-        button.innerHTML = 3;
+const cntDown = document.querySelector('#cntDown');
+const reply = document.querySelector('#reply');
+
+let cntNum = 3;
+cntDown.addEventListener('click', () => {
+    cntNum -= 1;
+    console.log(cntNum);
+    if (cntNum <= 0) {
+        alert('もう誰もいない・・・');
+        cntNum = 5;
     }
-};
+});

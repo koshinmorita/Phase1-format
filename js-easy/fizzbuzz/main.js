@@ -1,42 +1,75 @@
+// const button = document.querySelector('button');
+// const countNum = document.querySelector('#rewriteNum');
+
+// let i = 0;
+// countNum.innerHTML = i;
+
+// button.addEventListener('click', () => {
+//     i += 1;
+//     if (i % 3 === 0 && i % 5 === 0) {
+//         countNum.innerHTML = 'fizzbuzz';
+//     } else if (i % 3 === 0) {
+//         countNum.innerHTML = 'fizz';
+//     } else if (i % 5 === 0) {
+//         countNum.innerHTML = 'buzz';
+//     } else {
+//         countNum.innerHTML = i;
+//     }
+// });
+
+const showNum = document.querySelector('#showNum');
+const fizzBtn = document.querySelector('#fizzBtn');
+const buzzBtn = document.querySelector('#buzzBtn');
+const fizzbuzzBtn = document.querySelector('#fizzbuzzBtn');
+const numBtn = document.querySelector('#numBtn');
+
 let i = 0;
-const showNum = document.getElementById('showNum');
 showNum.innerHTML = i;
 
-const fizzBtn = () => {
+fizzBtn.addEventListener('click', () => {
     i += 1;
+    console.log(i);
     if (i % 3 === 0) {
         showNum.innerHTML = 'fizz';
     } else {
         alert('ぶっぶーですわ');
-        location.reload();
+        i = 0;
+        showNum.innerHTML = i;
     }
-};
+});
 
-const buzzBtn = () => {
+buzzBtn.addEventListener('click', () => {
     i += 1;
+    console.log(i);
     if (i % 5 === 0) {
         showNum.innerHTML = 'buzz';
     } else {
         alert('ぶっぶーですわ');
-        location.reload();
+        i = 0;
+        showNum.innerHTML = i;
     }
-};
+});
 
-const fizzbuzzBtn = () => {
+fizzbuzzBtn.addEventListener('click', () => {
     i += 1;
+    console.log(i);
     if (i % 3 === 0 && i % 5 === 0) {
         showNum.innerHTML = 'fizzbuzz';
     } else {
         alert('ぶっぶーですわ');
-        location.reload();
+        i = 0;
+        showNum.innerHTML = i;
     }
-};
+});
 
-const numBtn = () => {
+numBtn.addEventListener('click', () => {
     i += 1;
+    console.log(i);
     if (i % 3 === 0 || i % 5 === 0) {
         alert('ぶっぶーですわ');
-        location.reload();
+        i = 0;
+        showNum.innerHTML = 0;
+    } else {
+        showNum.innerHTML = i;
     }
-    showNum.innerHTML = i;
-};
+});
