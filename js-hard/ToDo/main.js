@@ -2,7 +2,7 @@ const addArea = document.querySelector('#add-area');
 const addBtn = document.querySelector('.add-btn');
 const todo = document.querySelector('#todo');
 
-addFunc = () => {
+const addFunc = () => {
     const isInputted = addArea.value;
     const list = document.createElement('li');
     const compBtn = document.createElement('button');
@@ -11,7 +11,7 @@ addFunc = () => {
     todo.appendChild(list);
     list.appendChild(compBtn);
 
-    compFunc = () => {
+    const compFunc = () => {
         todo.removeChild(list);
     };
 
